@@ -1,0 +1,241 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 130px 60px;
+    min-height: 50vh;
+    gap: 40px;
+    color: white;
+    width: 100%;
+}
+
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    flex: 1;
+}
+
+.hero-right {
+    flex-shrink: 0;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-img-box {
+    width: 380px;
+    height: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #1E2A3A;
+    position: relative;
+}
+
+.hero-img-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, #0A0A0F, transparent);
+    pointer-events: none;
+}
+
+.hero-img-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(135deg, #2563EB, #7C3AED);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.hero-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: rgba(37, 99, 235, 0.12);
+    color: #60A5FA;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 600;
+    color: #F0F4FF;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.hero-name {
+    font-size: 48px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2563EB, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.hero-sub {
+    font-size: 15px;
+    color: #6B7A99;
+    line-height: 1.7;
+    margin: 0 0 20px 0;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-primary {
+    padding: 10px 24px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #2563EB, #7C3AED);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    opacity: 0.85;
+    color: #fff;
+}
+
+.btn-secondary {
+    padding: 9px 24px;
+    border-radius: 6px;
+    background: transparent;
+    color: #2563EB;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid #2563EB;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #2563EB, #7C3AED);
+    color: #fff;
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablette (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    .hero {
+        padding: 60px 80px;
+        gap: 30px;
+    }
+
+    .hero-title,
+    .hero-name {
+        font-size: 40px;
+    }
+
+    .hero-img-box {
+        width: 320px;
+        height: 400px;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        padding: 40px 24px;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-left {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .hero-tag {
+        margin: 0 auto 20px auto;
+    }
+
+    .hero-title,
+    .hero-name {
+        font-size: 32px;
+    }
+
+    .hero-sub {
+        font-size: 14px;
+    }
+
+    .hero-btns {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-right {
+        justify-content: center;
+    }
+
+    .hero-img-box {
+        width: 280px;
+        height: 350px;
+    }
+}
+
+/* Petit mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding: 30px 16px;
+        gap: 30px;
+    }
+
+    .hero-title,
+    .hero-name {
+        font-size: 28px;
+    }
+
+    .hero-tag {
+        font-size: 11px;
+        padding: 4px 12px;
+    }
+
+    .hero-sub {
+        font-size: 13px;
+    }
+
+    .hero-img-box {
+        width: 240px;
+        height: 300px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+}

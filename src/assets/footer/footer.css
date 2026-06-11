@@ -1,0 +1,182 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 60px 20px;
+  border-top: 0.5px solid #1E2A3A;
+  background: #0A0A0F;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* ── GAUCHE ── */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #F0F4FF;
+}
+
+.footer-logo span {
+  color: #2563EB;
+}
+
+.footer-slogan {
+  font-size: 11px;
+  color: #6B7A99;
+  margin: 0;
+}
+
+/* ── CENTRE ── */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.footer-links a {
+  font-size: 12px;
+  color: #6B7A99;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: #2563EB;
+}
+
+/* ── RÉSEAUX ── */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #111827;
+  border: 0.5px solid #1E2A3A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #6B7A99;
+  transition: all 0.2s;
+}
+
+.social-btn:hover {
+  border-color: #2563EB;
+  color: #F0F4FF;
+  transform: translateY(-3px);
+}
+
+.social-btn.github:hover   { border-color: #F0F4FF; color: #F0F4FF; }
+.social-btn.linkedin:hover { border-color: #0A66C2; color: #0A66C2; }
+.social-btn.facebook:hover { border-color: #1877F2; color: #1877F2; }
+.social-btn.whatsapp:hover { border-color: #25D366; color: #25D366; }
+
+/* ── COPYRIGHT ── */
+.footer-copyright {
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: #3a4560;
+  padding-top: 20px;
+  margin-top: 10px;
+  border-top: 0.5px solid #1E2A3A;
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablette (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .footer {
+    padding: 30px 40px 20px;
+    gap: 20px;
+  }
+
+  .footer-links {
+    gap: 20px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 24px 20px;
+    gap: 20px;
+  }
+
+  .footer-left {
+    align-items: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .footer-socials {
+    gap: 15px;
+  }
+
+  .social-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .footer-copyright {
+    padding-top: 16px;
+    margin-top: 8px;
+  }
+}
+
+/* Petit mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 24px 16px 16px;
+    gap: 18px;
+  }
+
+  .footer-logo {
+    font-size: 16px;
+  }
+
+  .footer-slogan {
+    font-size: 10px;
+  }
+
+  .footer-links {
+    gap: 14px;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+  }
+
+  .footer-socials {
+    gap: 10px;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-copyright {
+    font-size: 10px;
+    padding-top: 14px;
+  }
+}

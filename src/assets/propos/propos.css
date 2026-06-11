@@ -1,0 +1,260 @@
+.hero-tout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+  gap: 40px;
+}
+
+/* ── GAUCHE ── */
+.gauche {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gauche .eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  color: #2563EB;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gauche h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #F0F4FF;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* badge corrigé */
+.gauche .badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 12px;
+  border-radius: 20px;
+  background: rgba(124, 58, 237, 0.12);
+  color: #a78bfa;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  width: fit-content;
+  font-weight: 500;
+}
+
+.gauche p {
+  font-size: 14px;
+  color: #6B7A99;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── DROITE ── */
+.droite {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.droite div {
+  background: #111827;
+  border: 0.5px solid #1E2A3A;
+  border-radius: 12px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.droite div:hover {
+  border-color: #2563EB;
+  transform: translateY(-4px);
+}
+
+/* nombre + signe sur la même ligne */
+.stat-num {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.droite div strong {
+  font-size: 36px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.plus {
+  font-size: 24px !important;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.droite div p {
+  font-size: 12px;
+  color: #6B7A99;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablette (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .hero-tout {
+    padding: 50px 40px;
+    gap: 30px;
+  }
+
+  .gauche h2 {
+    font-size: 26px;
+  }
+
+  .gauche p {
+    font-size: 13px;
+  }
+
+  .droite div strong {
+    font-size: 32px;
+  }
+
+  .droite div {
+    padding: 20px 12px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .hero-tout {
+    flex-direction: column;
+    padding: 40px 24px;
+    gap: 40px;
+  }
+
+  .gauche {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .gauche h2 {
+    font-size: 24px;
+    justify-content: center;
+  }
+
+  .gauche .badge {
+    font-size: 10px;
+    padding: 2px 10px;
+  }
+
+  .gauche p {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .droite {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .droite div strong {
+    font-size: 28px;
+  }
+
+  .droite div p {
+    font-size: 11px;
+  }
+
+  .droite div {
+    padding: 16px 12px;
+  }
+}
+
+/* Petit mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .hero-tout {
+    padding: 30px 16px;
+    gap: 30px;
+  }
+
+  .gauche h2 {
+    font-size: 22px;
+  }
+
+  .gauche p {
+    font-size: 12px;
+  }
+
+  .droite {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .droite div {
+    padding: 14px 8px;
+  }
+
+  .droite div strong {
+    font-size: 24px;
+  }
+
+  .droite div p {
+    font-size: 10px;
+  }
+
+  .stat-num {
+    gap: 0;
+  }
+
+  .plus {
+    font-size: 18px !important;
+  }
+}
+
+/* Animation d'entrée (optionnelle) */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.gauche {
+  animation: fadeInLeft 0.6s ease forwards;
+}
+
+.droite {
+  animation: fadeInRight 0.6s ease forwards;
+}
