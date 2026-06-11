@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 30px 60px 20px;
-  border-top: 0.5px solid #1E2A3A;
+  /* border-top: 0.5px solid #1E2A3A; */
   background: #0A0A0F;
   flex-wrap: wrap;
   gap: 24px;

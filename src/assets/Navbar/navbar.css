@@ -178,7 +178,9 @@
     .nvbr {
         padding: 0 16px;
         height: 70px;
-        position: relative;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
     /* Logo container */
@@ -223,13 +225,12 @@
 
     /* Menu caché par défaut */
     .nav-links {
-        position: absolute;
+        position: fixed;
         top: 70px;
         left: -100%;
         width: 80%;
         max-width: 300px;
-        height: auto;
-        min-height: 350px;
+        height: calc(100vh - 70px);
         background: linear-gradient(180deg, #111827 0%, #0A0A0F 100%) !important;
         backdrop-filter: blur(10px);
         display: flex;
@@ -245,6 +246,7 @@
         border-right: 1px solid rgba(37, 99, 235, 0.3);
         border-bottom: 1px solid rgba(37, 99, 235, 0.3);
         box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
     }
 
     /* Menu actif (ouvert) */
@@ -278,7 +280,7 @@
         display: none;
     }
 
-    /* Hover sur mobile - sans effet de couleur */
+    /* Hover sur mobile */
     .nvbr ul li a:hover {
         background: transparent;
         transform: none;
@@ -301,11 +303,26 @@
         display: none;
     }
 
-    /* Supprimer l'effet hover sur le bouton contact mobile */
     .nvbr .contact:hover {
         opacity: 1;
         transform: none;
         box-shadow: none;
+    }
+
+    /* Overlay sombre derrière le menu */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 70px);
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .nav-overlay.active {
+        display: block;
     }
 
     /* Empêcher le scroll du body quand le menu est ouvert */
@@ -341,11 +358,16 @@
 
     .nav-links {
         top: 60px;
+        height: calc(100vh - 60px);
         width: 85%;
         max-width: 280px;
         padding: 25px 16px !important;
         gap: 12px !important;
-        min-height: 300px;
+    }
+
+    .nav-overlay {
+        top: 60px;
+        height: calc(100vh - 60px);
     }
 
     .nvbr ul li a {
@@ -365,7 +387,6 @@
         display: none;
     }
     
-    /* Sur desktop, le logo reste à gauche sans flex */
     .nvbr-logo {
         flex: 0;
     }

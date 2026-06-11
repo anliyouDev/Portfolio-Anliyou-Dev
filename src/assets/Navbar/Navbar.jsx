@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const mobileMenuRef = useRef(null);
+    const menuRef = useRef(null);
+    const toggleRef = useRef(null);
 
     // Empêcher le scroll quand le menu est ouvert
     useEffect(() => {
@@ -14,64 +15,57 @@ function Navbar() {
         } else {
             document.body.classList.remove('menu-open');
         }
-        
         return () => {
             document.body.classList.remove('menu-open');
         };
     }, [menuOpen]);
 
-    // Fermer le menu quand on clique à l'extérieur (uniquement sur mobile)
+    // Fermer le menu quand on clique à l'extérieur
     useEffect(() => {
         const handleClickOutside = (event) => {
-            // Vérifier si on est en mode mobile (largeur < 769px)
-            if (window.innerWidth <= 768 && menuOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+            if (
+                window.innerWidth <= 768 &&
+                menuOpen &&
+                menuRef.current &&
+                !menuRef.current.contains(event.target) &&
+                toggleRef.current &&
+                !toggleRef.current.contains(event.target)
+            ) {
                 setMenuOpen(false);
             }
         };
 
         document.addEventListener('mousedown', handleClickOutside);
-        
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [menuOpen]);
 
-    // Fonction pour fermer le menu
-    const closeMenu = () => {
-        setMenuOpen(false);
-    };
-
-    // Fonction pour toggle le menu
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+    const closeMenu = () => setMenuOpen(false);
+    const toggleMenu = () => setMenuOpen(prev => !prev);
 
     return (
         <>
             <nav className="nvbr">
                 <Link to={"/"} className="nvbr-logo" onClick={closeMenu}>
-                    <video
-                        src={logos}
-                        autoPlay
-                        muted
-                        loop
-                    ></video>
+                    <video src={logos} autoPlay muted loop></video>
                     <div className="nvbr-logo-text">
                         Anliyou <span>Dev</span>
                     </div>
                 </Link>
 
-                {/* Bouton hamburger */}
+                {/* Bouton hamburger / croix */}
                 <div
+                    ref={toggleRef}
                     className="menu-toggle"
                     onClick={toggleMenu}
                 >
                     {menuOpen ? "✖" : "☰"}
                 </div>
 
-                {/* Menu mobile avec ref */}
-                <ul 
-                    ref={mobileMenuRef}
+                {/* Menu mobile */}
+                <ul
+                    ref={menuRef}
                     className={menuOpen ? "nav-links active" : "nav-links"}
                 >
                     <li><a href="#propos" onClick={closeMenu}>A PROPOS</a></li>
@@ -83,6 +77,12 @@ function Navbar() {
                         </a>
                     </li>
                 </ul>
+
+                {/* Overlay pour fermer en cliquant à côté */}
+                <div
+                    className={menuOpen ? "nav-overlay active" : "nav-overlay"}
+                    onClick={closeMenu}
+                ></div>
             </nav>
         </>
     );

@@ -35,28 +35,28 @@ function Propos() {
                 <div>
                     <div className="stat-num">
                         <motion.strong>{roundedA}</motion.strong>
-                        <span className="plus">+</span>
+                        {/* <span className="plus">+</span> */}
                     </div>
                     <p>Projets réalisés</p>
                 </div>
                 <div>
                     <div className="stat-num">
                         <motion.strong>{roundedB}</motion.strong>
-                        <span className="plus">+</span>
+                        {/* <span className="plus">+</span> */}
                     </div>
                     <p>Ans d'expérience</p>
                 </div>
                 <div>
                     <div className="stat-num">
                         <motion.strong>{roundedC}</motion.strong>
-                        <span className="plus">+</span>
+                        {/* <span className="plus">+</span> */}
                     </div>
                     <p>Technologies</p>
                 </div>
                 <div>
                     <div className="stat-num">
-                        <strong>100</strong>
-                        <span className="plus">%</span>
+                        <strong>100%</strong>
+                        {/* <span className="plus">%</span> */}
                     </div>
                     <p>Satisfaction</p>
                 </div>
