@@ -12,7 +12,7 @@ function Acceuil() {
                     <p className="hero-sub">Concevoir, Développer. <br /> Propulser vos idées</p>
                     <div className="hero-btns">
                         <a href="#Projets" className="btn-primary">Voir mes projets</a>
-                        <a href="#contact" className="btn-secondary">Me contacter</a>
+                        <a href="#Contact" className="btn-secondary">Me contacter</a>
                     </div>
                 </div>
                 <div className="hero-right">
