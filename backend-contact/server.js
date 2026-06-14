@@ -4,12 +4,10 @@ const nodemailer = require('nodemailer')
 const cors = require('cors')
 
 const app = express()
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 // Middlewares
-app.use(cors({
-  origin: 'http://localhost:5173', // mets ici l'URL de ton front React (Vite par défaut)
-}))
+app.use(cors())
 app.use(express.json())
 
 // Configuration du transporteur d'email (Gmail)
@@ -17,7 +15,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'massomaanliyoufofana@gmail.com',
-    pass: process.env.GMAIL_APP_PASSWORD, // mot de passe d'application Gmail (voir README)
+    pass: process.env.GMAIL_APP_PASSWORD,
   },
 })
 
